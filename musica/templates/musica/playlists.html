@@ -1,0 +1,29 @@
+{% extends 'musica/base.html' %}
+
+{% block content %}
+
+<div class="titulo">
+    <h1>☰ Mis Playlists</h1>
+    <p>Todas las playlists que has creado.</p>
+</div>
+
+<div class="playlists">
+    {% for playlist in playlists %}
+        <div class="playlist-card">
+            <h2>{{ playlist.nombre }}</h2>
+            <p>{{ playlist.descripcion }}</p>
+
+            <h3>Canciones:</h3>
+
+            {% for cancion in playlist.canciones.all %}
+                <p>🎵 {{ cancion.nombre }} - {{ cancion.artista }} | ⭐ {{ cancion.calificacion }}/10</p>
+            {% empty %}
+                <p>Esta playlist no tiene canciones.</p>
+            {% endfor %}
+        </div>
+    {% empty %}
+        <p>No hay playlists creadas todavía.</p>
+    {% endfor %}
+</div>
+
+{% endblock %}

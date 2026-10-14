@@ -1,0 +1,17 @@
+{% extends 'musica/base.html' %}
+
+{% block content %}
+
+<div class="formulario">
+    <h1>🎵 Agregar Canción</h1>
+    <p>Añade una nueva canción a tu bitácora.</p>
+
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button class="btn morado" type="submit">💾 Guardar Canción</button>
+    </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'musica/base.html' %}
+
+{% block content %}
+
+<div class="formulario">
+    <h1>🎶 Crear Playlist</h1>
+    <p>Crea una playlist usando las canciones que agregaste.</p>
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button class="btn verde" type="submit">Crear Playlist 🎶</button>
+    </form>
+</div>
+
+{% endblock %}

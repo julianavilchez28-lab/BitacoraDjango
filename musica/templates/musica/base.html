@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Bitácora Musical</title>
+    <link rel="stylesheet" href="{% static 'musica/css/style.css' %}">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="logo">🎵 Bitácora Musical</div>
+
+   
+</header>
+
+<main class="layout">
+    <aside class="sidebar">
+        <a href="{% url 'inicio' %}">🏠 Inicio</a>
+        <a href="{% url 'agregar_cancion' %}">➕ Agregar Canción</a>
+        <a href="{% url 'crear_playlist' %}">🎶 Crear Playlist</a>
+        <a href="{% url 'ver_playlists' %}">☰ Mis Playlists</a>
+    </aside>
+
+    <section class="contenido">
+        {% block content %}
+        {% endblock %}
+    </section>
+</main>
+
+</body>
+</html>

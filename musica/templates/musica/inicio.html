@@ -1,0 +1,35 @@
+{% extends 'musica/base.html' %}
+
+{% block content %}
+
+<div class="titulo">
+    <h1>🎵 Mi Bitácora Musical</h1>
+    <p>Todas tus canciones favoritas, organizadas.</p>
+</div>
+
+
+<form method="GET" class="buscador">
+    <input type="text" name="buscar" placeholder="Buscar canción por nombre, artista o categoría...">
+    <button type="submit">🔍 Buscar</button>
+</form>
+
+<div class="grid-canciones">
+    {% for cancion in canciones %}
+        <div class="card-cancion">
+            {% if cancion.imagen %}
+                <img src="{{ cancion.imagen.url }}" alt="{{ cancion.nombre }}">
+            {% endif %}
+
+            <div>
+                <h2>{{ cancion.nombre }}</h2>
+                <p>{{ cancion.artista }}</p>
+                <span>{{ cancion.categoria }}</span>
+                <h3>⭐ {{ cancion.calificacion }}/10</h3>
+            </div>
+        </div>
+    {% empty %}
+        <p>No hay canciones registradas todavía.</p>
+    {% endfor %}
+</div>
+
+{% endblock %}
